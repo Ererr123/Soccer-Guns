@@ -15,7 +15,7 @@ public class GunSystem : MonoBehaviour
     bool shooting, readyToShoot, reloading;
 
     //Reference
-    public Player fpsCam;
+    public Camera fpsCam;
     public Transform attackPoint;
     public RaycastHit rayHit;
     public LayerMask whatIsEnemy;
@@ -65,8 +65,8 @@ public class GunSystem : MonoBehaviour
         {
             Debug.Log(rayHit.collider.name);
 
-            /*if (rayHit.collider.CompareTag("Enemy"))
-                rayHit.collider.GetComponent<ShootingAi>().TakeDamage(damage);*/
+            //if (rayHit.collider.CompareTag("Enemy"))
+                //rayHit.collider.GetComponent<ShootingAi>().TakeDamage(damage);
         }
 
         //Graphics

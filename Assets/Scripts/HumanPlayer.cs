@@ -8,22 +8,67 @@ public class HumanPlayer : MonoBehaviour
 {
     [SerializeField] HealthBarScript _healthbar;
     Player scriptPlayer;
+
+    [SerializeField]
+    private GameObject bulletPrefab;
+
+
+    [SerializeField]
+    private Transform attackPosition;
+
+    [SerializeField]
+    private Transform bulletparent;
+
+    private InputAction gunAction;
+    private PlayerInput playerInput;
+    private Transform CameraTransform;
     private StarterAssetsInputs starterAssetsInputs;
     private CharacterController controller;
     public Animator animator;
     public bool movement = true;
+    public LayerMask IgnoreMe;
     private float timeTackle;
     public InputAction playerControls;
     void Awake()
     {
         starterAssetsInputs = GetComponent<StarterAssetsInputs>();
+        playerInput = GetComponent<PlayerInput>();
         scriptPlayer = GetComponent<Player>();
+        CameraTransform = Camera.main.transform;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        gunAction = playerInput.actions["Gun"];
     }
-    // Update is called once per frame
-    void Update()
+
+    private void OnEnable()
     {
+        gunAction.performed += _ => ShootGun();
+    }
+
+    private void OnDisable()
+    {
+        gunAction.performed -= _ => ShootGun();
+    }
+
+    private void ShootGun()
+    {
+        RaycastHit hit;
+        GameObject bullet = GameObject.Instantiate(bulletPrefab, attackPosition.position, Quaternion.identity, bulletparent);
+        BulletController bulletController = bullet.GetComponent<BulletController>();
+        if (Physics.Raycast(CameraTransform.position,CameraTransform.forward, out hit, 300f, ~IgnoreMe))
+        {
+            bulletController.target = hit.point;
+            bulletController.hit = true;
+        }
+        else
+        {
+            bulletController.target = CameraTransform.position+CameraTransform.forward *25f;
+            bulletController.hit = false;
+        }
+    }
+
+    void Update()
+    {   
         if (Time.time - timeTackle >2.2)
         {
             animator.SetLayerWeight(2, Mathf.Lerp(animator.GetLayerWeight(2), 0f, Time.deltaTime * 10f));
