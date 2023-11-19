@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class EnemyAi : MonoBehaviour
+public class RunnerAI : MonoBehaviour
 {
 
     public Transform Enemy;
