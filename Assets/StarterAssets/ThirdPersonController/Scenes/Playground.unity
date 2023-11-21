@@ -1140,7 +1140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &281184042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6553,6 +6553,7 @@ GameObject:
   - component: {fileID: 1548464582}
   - component: {fileID: 1548464581}
   - component: {fileID: 1548464580}
+  - component: {fileID: 1548464584}
   m_Layer: 0
   m_Name: Defender
   m_TagString: Untagged
@@ -6618,7 +6619,7 @@ Animator:
   m_GameObject: {fileID: 1548464579}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 949155b541c4147469bb3a90a9064a10, type: 3}
-  m_Controller: {fileID: 9100000, guid: e61342da2bf5d764eab8dcb0792e5197, type: 2}
+  m_Controller: {fileID: 9100000, guid: d67d4bb8eb3d88047a22da7b4a822ec9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
   m_ApplyRootMotion: 1
@@ -6646,6 +6647,20 @@ Transform:
   - {fileID: 1721653504}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
+--- !u!114 &1548464584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548464579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b40460d852f6d18458491bf8bf216a01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 4935240605412640}
+  MoveSpeed: 0
 --- !u!1 &1567368585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4416926081852918481, guid: 64dce48905ffd9b4293e595fa6941544, type: 3}
