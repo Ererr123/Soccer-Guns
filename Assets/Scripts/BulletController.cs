@@ -5,8 +5,8 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     private float speed = 25f;
-    private float timeToDestroy = 5;
-
+    private float timeToDestroy = 2.5F;
+    Rigidbody rb;
     public Vector3 target {  get;  set; }
     public bool hit { get; set; }
 
@@ -20,13 +20,19 @@ public class BulletController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
         if (!hit && Vector3.Distance(transform.position,target) < .01f)
         {
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
+
+        
     }
 
 
