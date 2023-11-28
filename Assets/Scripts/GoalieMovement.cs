@@ -24,7 +24,7 @@ public class GoalieController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Bullet")))
+        if ((other.CompareTag("AllyBullet")))
         {
             PlayerTakeDmg(20);
         }
@@ -69,7 +69,7 @@ public class GoalieController : MonoBehaviour
             }
         }
     }
-
+    
     private void PlayerTakeDmg(float dmg)
     {
         helath -= dmg;

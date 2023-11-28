@@ -15,6 +15,8 @@ public class SwitchVcam : MonoBehaviour
 
     // Start is called before the first frame update
     private InputAction Aim;
+    [SerializeField]
+    public Animator animator;
 
     private CinemachineVirtualCamera VirtualCamera;
     private void Awake()
@@ -46,5 +48,14 @@ public class SwitchVcam : MonoBehaviour
     {
         VirtualCamera.Priority -= priority;
         aimCanvas.enabled = false;
+        animator.SetLayerWeight(3, 0);
+    }
+
+    private void Update()
+    {
+        if(aimCanvas.enabled == true)
+        {
+            animator.SetLayerWeight(3, 1);
+        }
     }
 }

@@ -52,7 +52,7 @@ public class ScorerAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Bullet")))
+        if ((other.CompareTag("AllyBullet")))
         {
             PlayerTakeDmg(20);
         }

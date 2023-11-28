@@ -28,17 +28,11 @@ public class ShooterAi : MonoBehaviour
     private void Awake()
     {
         healthbar = GetComponentInChildren<EnemyHealthScript>();
-    }
-
-    void Start()
-    {
         animator = GetComponent<Animator>();
-        agent.SetDestination(player.position);
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if ((other.CompareTag("Bullet")))
+        if ((other.CompareTag("AllyBullet")))
         {
             PlayerTakeDmg(20);
         }
@@ -46,33 +40,35 @@ public class ShooterAi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //closestEnemy = Closest(team);
         if (timeShot == 0)
         {
             if (Vector3.Distance(player.position, transform.position) < 15)
             {
-                //agent.SetDestination(transform.position);
-                //transform.LookAt(player.position);
+                animator.SetLayerWeight(1, 1);
+                agent.SetDestination(transform.position);
+                transform.LookAt(player.position);
                 ShootGun();
                 timeShot = Time.time;
+            }
+            else
+            {
+                agent.SetDestination(player.position);
             }
         }
 
         if (Time.time - timeShot > 1.5)
         {
+            animator.SetLayerWeight(1, 0);
+            agent.SetDestination(player.position);
             timeShot = 0;
         }
-        /*if (Vector3.Distance(player.position, transform.position) > 15)
-        {
-            agent.SetDestination(player.position);
-        }*/
     }
 
     private void ShootGun()
     {
         RaycastHit hit;
         GameObject bullet = GameObject.Instantiate(bulletPrefab, attackPosition.position, Quaternion.identity, bulletparent);
-        BulletController bulletController = bullet.GetComponent<BulletController>();
+        EnemyBulletController bulletController = bullet.GetComponent<EnemyBulletController>();
         if (Physics.Raycast(rayPosition.position, rayPosition.forward, out hit, 300f))
         {
             bulletController.target = hit.point;

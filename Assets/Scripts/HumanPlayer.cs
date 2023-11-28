@@ -28,6 +28,7 @@ public class HumanPlayer : MonoBehaviour
     public bool movement = true;
     public LayerMask IgnoreMe;
     private float timeTackle;
+    private float timeShot;
     public InputAction playerControls;
     void Awake()
     {
@@ -42,6 +43,7 @@ public class HumanPlayer : MonoBehaviour
 
     private void OnEnable()
     {
+
         gunAction.performed += _ => ShootGun();
     }
 
@@ -52,9 +54,11 @@ public class HumanPlayer : MonoBehaviour
 
     private void ShootGun()
     {
+        animator.SetLayerWeight(3, 1);
+        timeShot = Time.time;
         RaycastHit hit;
         GameObject bullet = GameObject.Instantiate(bulletPrefab, attackPosition.position, Quaternion.identity, bulletparent);
-        BulletController bulletController = bullet.GetComponent<BulletController>();
+        AllyBulletController bulletController = bullet.GetComponent<AllyBulletController>();
         if (Physics.Raycast(CameraTransform.position,CameraTransform.forward, out hit, 300f, ~IgnoreMe))
         {
             bulletController.target = hit.point;
@@ -69,6 +73,11 @@ public class HumanPlayer : MonoBehaviour
 
     void Update()
     {   
+        if(Time.time - timeShot > .75)
+        {
+            timeShot = 0;
+            animator.SetLayerWeight(3, 0);
+        }
         if (Time.time - timeTackle >2.2)
         {
             animator.SetLayerWeight(2, Mathf.Lerp(animator.GetLayerWeight(2), 0f, Time.deltaTime * 10f));
@@ -99,9 +108,9 @@ public class HumanPlayer : MonoBehaviour
             PlayerTakeDmg(10);
         }
 
-        if (other.CompareTag("Bullet"))
+        if (other.CompareTag("EnemyBullet"))
         {
-            PlayerTakeDmg(10);
+            PlayerTakeDmg(20);
         }
     }
 
