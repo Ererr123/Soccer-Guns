@@ -13,11 +13,15 @@ public class BulletController : MonoBehaviour
     public void OnEnable()
     {
         Destroy(this.gameObject, timeToDestroy);
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (hit && Vector3.Distance(transform.position, target) < .01f)
+        {
             Destroy(this.gameObject);
+        }
     }
 
     private void Start()
