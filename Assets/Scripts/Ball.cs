@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour
             speed = 0;
             distanceToPlayer = Mathf.Abs(Vector3.Distance(transformPlayer.position, transform.position));
             distanceToEnemy = Mathf.Abs(Vector3.Distance(transformEnemy.position, transform.position));
-            if (distanceToPlayer < .5)
+            if (distanceToPlayer < 1)
             {
                 rigidbody.velocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
