@@ -20,7 +20,13 @@ public class RunnerAI : MonoBehaviour
     bool controller;
     private float timeSlide;
     public Animator animator;
+    [SerializeField] float helath, maxHealth = 100f;
+    [SerializeField] EnemyHealthScript healthbar;
 
+    private void Awake()
+    {
+        healthbar = GetComponentInChildren<EnemyHealthScript>();
+    }
 
     void Start()
     {
@@ -30,6 +36,13 @@ public class RunnerAI : MonoBehaviour
         //Player = 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.CompareTag("Bullet")))
+        {
+            PlayerTakeDmg(20);
+        }
+    }
     void Update()
     {
         if (Time.time - timeSlide > 1.23)
@@ -61,5 +74,11 @@ public class RunnerAI : MonoBehaviour
             animator.Play("Slide", 1, 0f);
             animator.SetLayerWeight(1, 1f);
         }
+    }
+
+    private void PlayerTakeDmg(float dmg)
+    {
+        helath -= dmg;
+        healthbar.UpdateHealthBar(helath, maxHealth);
     }
 }

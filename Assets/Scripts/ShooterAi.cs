@@ -17,17 +17,32 @@ public class ShooterAi : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField]
     private Transform player;
+    [SerializeField] float helath, maxHealth = 100;
+    [SerializeField] EnemyHealthScript healthbar;
     public Animator animator;
     private float timeShot;
     //private Transform closestEnemy
     //Temporarly for now they target just player however, will be changed when we add other guys
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        healthbar = GetComponentInChildren<EnemyHealthScript>();
+    }
+
     void Start()
     {
         animator = GetComponent<Animator>();
         agent.SetDestination(player.position);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.CompareTag("Bullet")))
+        {
+            PlayerTakeDmg(20);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -69,5 +84,9 @@ public class ShooterAi : MonoBehaviour
             bulletController.hit = false;
         }
     }
-
+    private void PlayerTakeDmg(float dmg)
+    {
+        helath -= dmg;
+        healthbar.UpdateHealthBar(helath, maxHealth);
+    }
 }

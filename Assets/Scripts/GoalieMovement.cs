@@ -8,10 +8,26 @@ public class GoalieController : MonoBehaviour
     public Transform ball;
     private int MinDist = 6;
     private float timeDive;
+    [SerializeField] float helath, maxHealth = 10000f;
+    [SerializeField] EnemyHealthScript healthbar;
+
+    private void Awake()
+    {
+        healthbar = GetComponentInChildren<EnemyHealthScript>();
+    }
+
     private void Start()
     {
         animator = GetComponent<Animator>();
            
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.CompareTag("Bullet")))
+        {
+            PlayerTakeDmg(20);
+        }
     }
 
     private void Update()
@@ -52,6 +68,12 @@ public class GoalieController : MonoBehaviour
                 transform.position = new Vector3(0.919f, -9.608f, 25.17f);
             }
         }
+    }
+
+    private void PlayerTakeDmg(float dmg)
+    {
+        helath -= dmg;
+        healthbar.UpdateHealthBar(helath, maxHealth);
     }
 }
 

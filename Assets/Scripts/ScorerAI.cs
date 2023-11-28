@@ -11,12 +11,19 @@ public class ScorerAI : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform ball;
     [SerializeField] private Transform goal;
+    [SerializeField] float helath, maxHealth = 100;
+    [SerializeField] EnemyHealthScript healthbar;
     private Ball ballAttachedToEnemy;
     public Animator animator;
     private Transform playerBallPosition;
     Vector3 previousLocation;
 
     public Ball BallAttachedToEnemy { get => ballAttachedToEnemy; set => ballAttachedToEnemy = value; }
+
+    private void Awake()
+    {
+        healthbar = GetComponentInChildren<EnemyHealthScript>();
+    }
 
     private void Start()
     {
@@ -43,6 +50,14 @@ public class ScorerAI : MonoBehaviour
         agent.SetDestination(ball.position);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if ((other.CompareTag("Bullet")))
+        {
+            PlayerTakeDmg(20);
+        }
+    }
+
     public void Score()
     {
         agent.SetDestination(goal.position);
@@ -61,5 +76,11 @@ public class ScorerAI : MonoBehaviour
             ballAttachedToEnemy = null;
         }
     }
+    private void PlayerTakeDmg(float dmg)
+    {
+        helath -= dmg;
+        healthbar.UpdateHealthBar(helath, maxHealth);
+    }
+
 
 }

@@ -98,6 +98,11 @@ public class HumanPlayer : MonoBehaviour
             animator.SetLayerWeight(2, 2f);
             PlayerTakeDmg(10);
         }
+
+        if (other.CompareTag("Bullet"))
+        {
+            PlayerTakeDmg(10);
+        }
     }
 
     private void PlayerTakeDmg(int dmg)
