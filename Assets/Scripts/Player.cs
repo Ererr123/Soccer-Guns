@@ -53,7 +53,8 @@ public class Player : MonoBehaviour
                 Rigidbody rigidbody = ballAttachedToPlayer.gameObject.GetComponent<Rigidbody>();
                 Vector3 shootDirection = transform.forward;
                 shootDirection.y += 0.2f;
-                rigidbody.AddForce(shootDirection *(10 + shootingPower *20f), ForceMode.Impulse);
+                Debug.Log(shootingPower);
+                rigidbody.AddForce(shootDirection *(4 + shootingPower *20f), ForceMode.Impulse);
                 LooseBall();
             }
 

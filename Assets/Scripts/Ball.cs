@@ -38,7 +38,7 @@ public class Ball : MonoBehaviour
             speed = 0;
             distanceToPlayer = Mathf.Abs(Vector3.Distance(transformPlayer.position, transform.position));
             distanceToEnemy = Mathf.Abs(Vector3.Distance(transformEnemy.position, transform.position));
-            if (distanceToPlayer < .5)
+            if (distanceToPlayer < 1)
             {
                 rigidbody.velocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
@@ -63,7 +63,7 @@ public class Ball : MonoBehaviour
                 transform.Rotate(new Vector3(transformPlayer.right.x, 0, transformPlayer.right.z), speed, Space.World);
                 previousLocation = currentLocation;
             }
-            else
+            else if(scriptScorer.BallAttachedToEnemy == true)
             {
                 Vector2 currentLocation = new Vector2(transform.position.x, transform.position.z);
                 speed = Vector2.Distance(currentLocation, previousLocation) / Time.deltaTime;
@@ -74,10 +74,15 @@ public class Ball : MonoBehaviour
         }
         if (transform.position.z > 27 || transform.position.z < -27 || transform.position.x > 16.78 || transform.position.x < -16.78)
         {
+            stickToPlayer = false;
             transform.position = new Vector3(0, -9.608f, 0);
             rigidbody.velocity = Vector3.zero;
+            speed = 0;
+            transform.Rotate(new Vector3(0, 0, 0), 0, 0);
             rigidbody.angularVelocity = Vector3.zero;
-            stickToPlayer  = false;
+            Vector2 currentLocation = new Vector2(0, 0);
+            previousLocation = currentLocation;
+
         }
 
 
