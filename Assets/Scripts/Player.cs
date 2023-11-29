@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         UpdateScore();
 
         // win condition
-        if(myScore > 1)
+        if(myScore > 6)
         {
             SceneManager.LoadScene("MainMenu");
         }

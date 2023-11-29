@@ -1360,6 +1360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0eceb72f7cd5b042ad43b934d297d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  targets: []
+  bulletSpeed: 10
+  shootingInterval: 0.5
   moveSpeed: 1
   Player: {fileID: 1762682262}
   maxLeft: -14
@@ -4001,7 +4006,7 @@ RectTransform:
   m_Father: {fileID: 676276048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4219,6 +4224,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0eceb72f7cd5b042ad43b934d297d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  targets: []
+  bulletSpeed: 10
+  shootingInterval: 0.5
   moveSpeed: 1.8
   Player: {fileID: 1762682262}
   maxLeft: -14
@@ -5572,7 +5582,7 @@ RectTransform:
   m_Father: {fileID: 537378280}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5866,6 +5876,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0eceb72f7cd5b042ad43b934d297d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  bulletSpawnPoint: {fileID: 0}
+  targets: []
+  bulletSpeed: 10
+  shootingInterval: 0.5
   moveSpeed: 1
   Player: {fileID: 1762682262}
   maxLeft: -14
@@ -6112,6 +6127,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0eceb72f7cd5b042ad43b934d297d67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 4941864767083051778, guid: 82d8619562839a44b92486b12b4751bb, type: 3}
+  bulletSpawnPoint: {fileID: 2141914655}
+  targets:
+  - {fileID: 281184045}
+  bulletSpeed: 100
+  shootingInterval: 0.5
   moveSpeed: 1.8
   Player: {fileID: 1762682262}
   maxLeft: -14
@@ -6411,7 +6432,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8335383514bec2b478c8710bc52dd819, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.8
+      value: -2.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8335383514bec2b478c8710bc52dd819, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6419,7 +6440,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8335383514bec2b478c8710bc52dd819, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.5
+      value: 3.49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8335383514bec2b478c8710bc52dd819, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6451,6 +6472,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8335383514bec2b478c8710bc52dd819, type: 3}
       propertyPath: m_Name
+      value: Ally
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8335383514bec2b478c8710bc52dd819, type: 3}
+      propertyPath: m_TagString
       value: Ally
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -12139,7 +12164,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &1578380256
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -14154,6 +14179,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 8168107586129397705, guid: ed8da91996728af40829efdf6498c1aa, type: 3}
   attackPosition: {fileID: 1099436548}
   bulletparent: {fileID: 1123857209}
+  rotationSpeed: 5
   animator: {fileID: 1762682277}
   movement: 1
   IgnoreMe:
@@ -14854,6 +14880,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 391383737}
     m_Modifications:
+    - target: {fileID: -915442961490450222, guid: c9841888fa5041d499ada59f73087c6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5855586643228379229, guid: c9841888fa5041d499ada59f73087c6a, type: 3}
       propertyPath: m_Name
       value: ShotGun
@@ -16954,7 +16984,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1017971967122151523
 Transform:
   m_ObjectHideFlags: 0
