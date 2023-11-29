@@ -11,9 +11,9 @@ public class ScorerAI : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform ball;
     [SerializeField] private Transform goal;
-    public float helath = 100, maxHealth = 100;
+    [SerializeField] float helath, maxHealth = 100;
     [SerializeField] EnemyHealthScript healthbar;
-    public Ball ballAttachedToEnemy;
+    private Ball ballAttachedToEnemy;
     public Animator animator;
     private Transform playerBallPosition;
     Vector3 previousLocation;
@@ -82,9 +82,5 @@ public class ScorerAI : MonoBehaviour
         healthbar.UpdateHealthBar(helath, maxHealth);
     }
 
-    public void Uphel()
-    {
-        healthbar.UpdateHealthBar(helath, maxHealth);
-    }
 
 }

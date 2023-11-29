@@ -26,7 +26,6 @@ public class HumanPlayer : MonoBehaviour
     private StarterAssetsInputs starterAssetsInputs;
     private CharacterController controller;
     public Animator animator;
-    private AudioSource soundShoot;
     public bool movement = true;
     public LayerMask IgnoreMe;
     private float timeTackle;
@@ -40,7 +39,6 @@ public class HumanPlayer : MonoBehaviour
         CameraTransform = Camera.main.transform;
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        soundShoot = GameObject.Find("Sound/shoot").GetComponent<AudioSource>();
         gunAction = playerInput.actions["Gun"];
     }
 
@@ -57,7 +55,6 @@ public class HumanPlayer : MonoBehaviour
 
     private void ShootGun()
     {
-        soundShoot.Play();
         animator.SetLayerWeight(3, 1);
         timeShot = Time.time;
         RaycastHit hit;
