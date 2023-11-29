@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class HumanPlayer : MonoBehaviour
 {
@@ -118,5 +119,11 @@ public class HumanPlayer : MonoBehaviour
     {
         Controller.gameManger._playerHealth.DmgUnit(dmg);
         _healthbar.SetHealth(Controller.gameManger._playerHealth.health);
+        if (Controller.gameManger._playerHealth.health <= 0)
+        {
+            // Load the intro screen scene
+            SceneManager.LoadScene("MainMenu");
+        
+        }
     }
 }
