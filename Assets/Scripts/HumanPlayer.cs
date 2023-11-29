@@ -19,7 +19,7 @@ public class HumanPlayer : MonoBehaviour
 
     [SerializeField]
     private Transform bulletparent;
-
+    [SerializeField] private float rotationSpeed = 5f;
     private InputAction gunAction;
     private PlayerInput playerInput;
     private Transform CameraTransform;
@@ -98,8 +98,20 @@ public class HumanPlayer : MonoBehaviour
         {
             scriptPlayer.Shoot();
         }
+        RotatePlayerToCameraDirection();
     }
-    private void OnTriggerEnter(Collider other)
+    private void RotatePlayerToCameraDirection()
+    {
+        Vector3 cameraForward = CameraTransform.forward;
+        cameraForward.y = 0; // Ensure rotation only happens on the Y axis
+        if (cameraForward.sqrMagnitude > 0f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(cameraForward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+
+private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag.Equals("Runner"))
         {

@@ -8,7 +8,7 @@ public class RunnerAI : MonoBehaviour
 {
 
     public Transform Enemy;
-    private Transform Player;
+   public Transform Player;
     private Transform ball;
     //private Vector3 targetGoalPosition;
     [SerializeField] float MoveSpeed;
@@ -20,13 +20,13 @@ public class RunnerAI : MonoBehaviour
     bool controller;
     private float timeSlide;
     public Animator animator;
-    [SerializeField] float helath, maxHealth = 100f;
-    [SerializeField] EnemyHealthScript healthbar;
+    //[SerializeField] float helath, maxHealth = 100f;
+    //[SerializeField] EnemyHealthScript healthbar;
 
-    private void Awake()
+    /*private void Awake()
     {
         healthbar = GetComponentInChildren<EnemyHealthScript>();
-    }
+    }*/
 
     void Start()
     {
@@ -36,13 +36,13 @@ public class RunnerAI : MonoBehaviour
         //Player = 
     }
 
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if ((other.CompareTag("AllyBullet")))
         {
             PlayerTakeDmg(20);
         }
-    }
+    }*/
     void Update()
     {
         if (Time.time - timeSlide > 1.23)
@@ -76,9 +76,9 @@ public class RunnerAI : MonoBehaviour
         }
     }
 
-    private void PlayerTakeDmg(float dmg)
+    /*private void PlayerTakeDmg(float dmg)
     {
         helath -= dmg;
         healthbar.UpdateHealthBar(helath, maxHealth);
-    }
+    }*/
 }
