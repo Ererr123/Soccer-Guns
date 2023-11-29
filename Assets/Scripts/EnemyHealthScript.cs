@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyHealthScript : MonoBehaviour
 {
     [SerializeField] private Slider slider;
-    [SerializeField] public Camera cam;
+    [SerializeField] private Camera cam;
     [SerializeField] private Transform target;
     [SerializeField] private Vector3 offset;
 

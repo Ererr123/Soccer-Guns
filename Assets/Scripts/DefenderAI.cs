@@ -5,12 +5,12 @@ using UnityEngine.Animations;
 public class DefenderAI : MonoBehaviour
 {
     public GameObject goalie;
-    public Transform ball;
+    public GameObject ball;
     public float sideMovementSpeed = 5f;
     public float maxDistanceFromGoal = 10f;
-    //[SerializeField] public float helath, maxHealth = 3000;
+    [SerializeField] float helath, maxHealth = 3000;
     public Animator animator;
-    //[SerializeField] EnemyHealthScript healthbar;
+    [SerializeField] EnemyHealthScript healthbar;
 
     private Vector3 startPosition;
 
@@ -20,13 +20,13 @@ public class DefenderAI : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if ((other.CompareTag("AllyBullet")))
         {
             PlayerTakeDmg(20);
         }
-    }*/
+    }
     void Update()
     {
         // Stay in line with the ball but within limits
@@ -48,9 +48,9 @@ public class DefenderAI : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, sideMovementSpeed * Time.deltaTime);
     }
 
-    /*private void PlayerTakeDmg(float dmg)
+    private void PlayerTakeDmg(float dmg)
     {
         helath -= dmg;
         healthbar.UpdateHealthBar(helath, maxHealth);
-    }*/
+    }
 }

@@ -9,11 +9,10 @@ public class ScorerAI : MonoBehaviour
 {
 
     [SerializeField] private NavMeshAgent agent;
-    [SerializeField] public Transform ball;
-    [SerializeField] public Transform goal;
+    [SerializeField] private Transform ball;
+    [SerializeField] private Transform goal;
     [SerializeField] float helath, maxHealth = 100;
     [SerializeField] EnemyHealthScript healthbar;
-    float timeShot;
     private Ball ballAttachedToEnemy;
     public Animator animator;
     private Transform playerBallPosition;
@@ -24,7 +23,6 @@ public class ScorerAI : MonoBehaviour
     private void Awake()
     {
         healthbar = GetComponentInChildren<EnemyHealthScript>();
-        timeShot = 0;
     }
 
     private void Start()
@@ -33,12 +31,7 @@ public class ScorerAI : MonoBehaviour
     }
     void Update()
     {
-        /*if(helath <= 0)
-        {
-            helath += 100;
-            //healthbar.UpdateHealthBar(helath, maxHealth);
-            //Invoke("Respawn()", 5);
-        }*/
+
         if (ball != null && ballAttachedToEnemy == false)
         {
             transform.LookAt(ball);
@@ -88,5 +81,6 @@ public class ScorerAI : MonoBehaviour
         helath -= dmg;
         healthbar.UpdateHealthBar(helath, maxHealth);
     }
+
 
 }
