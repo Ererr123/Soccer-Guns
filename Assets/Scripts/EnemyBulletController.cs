@@ -31,7 +31,7 @@ public class EnemyBulletController : MonoBehaviour
     void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        if (hit && Vector3.Distance(transform.position,target) < .01f)
+        if (hit && Vector3.Distance(transform.position,target) < .1f)
         {
             Destroy(this.gameObject);
         }

@@ -98,9 +98,9 @@ public class HumanPlayer : MonoBehaviour
         {
             scriptPlayer.Shoot();
         }
-        RotatePlayerToCameraDirection();
+        //RotatePlayerToCameraDirection();
     }
-    private void RotatePlayerToCameraDirection()
+    /*private void RotatePlayerToCameraDirection()
     {
         Vector3 cameraForward = CameraTransform.forward;
         cameraForward.y = 0; // Ensure rotation only happens on the Y axis
@@ -109,7 +109,7 @@ public class HumanPlayer : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(cameraForward);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-    }
+    }*/
 
 private void OnTriggerEnter(Collider other)
     {
@@ -133,9 +133,15 @@ private void OnTriggerEnter(Collider other)
         _healthbar.SetHealth(Controller.gameManger._playerHealth.health);
         if (Controller.gameManger._playerHealth.health <= 0)
         {
-            // Load the intro screen scene
-            SceneManager.LoadScene("MainMenu");
-        
+            //LoadGame();
+            //SceneManager.LoadScene("MainMenu");
         }
     }
+
+    //Not Working Don't add
+    /*public void LoadGame()
+    {
+        // Load the intro screen scene
+        SceneManager.LoadScene("DeathScreen");
+    }*/
 }

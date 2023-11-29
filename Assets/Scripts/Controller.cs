@@ -25,7 +25,7 @@ public class Controller : MonoBehaviour
     private bool waitingForKickOff;
     private float waitingTimeKickOff;
     private float goalTextColorAlpha;
-    List<GameObject> EnemyList = new List<GameObject>();
+    public List<GameObject> EnemyList = new List<GameObject>();
     // Start is called before the first frame update
     public int count;
     int num;
