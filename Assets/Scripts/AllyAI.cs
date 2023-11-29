@@ -54,7 +54,7 @@ public class AllyAI : MonoBehaviour
         {
             if (target != null)
             {
-                if (Vector3.Distance(target.position, transform.position) < 15)
+                if (Vector3.Distance(target.position, transform.position) < 7)
                 {
                     animator.SetLayerWeight(1, 1);
                     agent.SetDestination(transform.position);
