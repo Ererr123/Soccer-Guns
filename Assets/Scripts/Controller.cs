@@ -96,8 +96,8 @@ public class Controller : MonoBehaviour
 
         EnemyList.Add(Instantiate(runner, new Vector3(0, -9.759598f, 22.27f), Quaternion.identity));
         EnemyList.Add(Instantiate(shooter, new Vector3(3, -9.759598f, 22.27f), Quaternion.identity));
-        EnemyList.Add(Instantiate(shooter, new Vector3(3, -9.759598f, 22.27f), Quaternion.identity));
-        EnemyList.Add(Instantiate(shooter, new Vector3(3, -9.759598f, 22.27f), Quaternion.identity));
+        EnemyList.Add(Instantiate(shooter, new Vector3(-7, -9.759598f, 22.27f), Quaternion.identity));
+        EnemyList.Add(Instantiate(shooter, new Vector3(7, -9.759598f, 22.27f), Quaternion.identity));
         EnemyList.Add(Instantiate(goalie, new Vector3(0.919f, -9.7f, 25.17f), new Quaternion(0, -180, 0, 1)));
         EnemyList.Add(Instantiate(defender, new Vector3(.41F, -9.7f, 22.409f), new Quaternion(0, -180, 0, 1)));
 
@@ -118,7 +118,9 @@ public class Controller : MonoBehaviour
             }
         }
         if(helth.helath <= 0)
-        { 
+        {
+            helth.helath = 100;
+            helth.Uphel();
             helth.BallAttachedToEnemy = null;
             helth.ballAttachedToEnemy = null;
             Scorer.SetActive(false);

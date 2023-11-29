@@ -71,6 +71,10 @@ public class Ball : MonoBehaviour
                 transform.Rotate(new Vector3(transformEnemy.right.x, 0, transformEnemy.right.z), speed, Space.World);
                 previousLocation = currentLocation;
             }
+            else
+            {
+                stickToPlayer = false;
+            }
         }
         if (transform.position.z > 27 || transform.position.z < -27 || transform.position.x > 16.78 || transform.position.x < -16.78)
         {
