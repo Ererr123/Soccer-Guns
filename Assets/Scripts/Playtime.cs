@@ -7,7 +7,7 @@ public class Playtime : MonoBehaviour
 {
     public void NextScene()
     {
-        SceneManager.LoadSceneAsync("Playground");
+        SceneManager.LoadSceneAsync("Level1");
     }
         
 }
