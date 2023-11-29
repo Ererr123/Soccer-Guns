@@ -7,7 +7,7 @@ public class PlayAgain : MonoBehaviour
 {
     public void GoAgain()
     {
-        SceneManager.LoadSceneAsync("Playground");
+        SceneManager.LoadSceneAsync("Level1");
     }
         
 }

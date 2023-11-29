@@ -133,15 +133,12 @@ private void OnTriggerEnter(Collider other)
         _healthbar.SetHealth(Controller.gameManger._playerHealth.health);
         if (Controller.gameManger._playerHealth.health <= 0)
         {
-            //LoadGame();
-            //SceneManager.LoadScene("MainMenu");
+            LoadLosingScreen();
         }
     }
-
-    //Not Working Don't add
-    /*public void LoadGame()
+    public void LoadLosingScreen()
     {
         // Load the intro screen scene
-        SceneManager.LoadScene("DeathScreen");
-    }*/
+        SceneManager.LoadScene("LoseScreen");
+    }
 }
