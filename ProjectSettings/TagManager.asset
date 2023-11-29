@@ -10,6 +10,8 @@ TagManager:
   - AllyBullet
   - EnemyBullet
   - Bullet
+  - Runner
+  - Ally
   layers:
   - Default
   - TransparentFX

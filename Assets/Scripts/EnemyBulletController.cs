@@ -16,13 +16,13 @@ public class EnemyBulletController : MonoBehaviour
 
     }
 
-    /*private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Enemy"))
+        if (!other.CompareTag("Enemy") && !other.CompareTag("Runner"))
         {
             Destroy(this.gameObject);
         }
-    }*/
+    }
 
     private void Start()
     {

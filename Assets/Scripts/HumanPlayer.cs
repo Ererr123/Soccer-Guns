@@ -100,7 +100,7 @@ public class HumanPlayer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Equals("Enemy"))
+        if (other.gameObject.tag.Equals("Runner"))
         {
             timeTackle = Time.time;
             animator.Play("Tackled", 2, 0f);
