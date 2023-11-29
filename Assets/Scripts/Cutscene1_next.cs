@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class Cutscene1_next : MonoBehaviour
 {
-    public void PlayGame()
+    public void NextScene()
     {
-        SceneManager.LoadSceneAsync("Cutscene1");
+        SceneManager.LoadSceneAsync("Cutscene2");
     }
         
 }
