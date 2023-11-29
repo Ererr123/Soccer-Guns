@@ -1,14 +1,13 @@
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
-{
-    /*
+{ 
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
     public Transform[] targets;
     public float bulletSpeed = 10.0f;
     public float shootingInterval = 0.5f;
-    */
+    
 
     public float moveSpeed = 5.0f;
 
@@ -20,9 +19,9 @@ public class Shooting : MonoBehaviour
     public float maxFront = 15f;
     public float maxBack = -23f;
     
-    //private int currentTargetIndex = 0;
+    private int currentTargetIndex = 0;
     private float elapsedTime = 0.0f;
-    //private bool allEnemiesDestroyed = false;
+    private bool allEnemiesDestroyed = false;
 
     // getting ally animator
     private Animator animator;
@@ -34,7 +33,7 @@ public class Shooting : MonoBehaviour
 
     void Update()
     {
-        /*
+        
         // Check if all enemies are destroyed
         if (!allEnemiesDestroyed)
         {
@@ -50,20 +49,10 @@ public class Shooting : MonoBehaviour
             elapsedTime = 0.0f; // Reset the timer after shooting
         }
 
-        Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput) ;
-        transform.Translate(movement);
-
-        // Clamp the position to stay within the defined boundaries
-        Vector3 clampedPosition = transform.position;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, maxLeft, maxRight);
-        clampedPosition.z = Mathf.Clamp(clampedPosition.z, maxBack, maxFront);
-        transform.position = clampedPosition;
 
 
-        */
+
+        
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -82,31 +71,9 @@ public class Shooting : MonoBehaviour
         {
             animator.SetBool("IsMoving", false); // If there's no movement input, set isMoving to false
         }
-
-        /*
-
-        if (movement.magnitude > 0.01f)
-        {
-            animator.SetBool("IsMoving", true); // If there's movement input, set isMoving to true
-            transform.Translate(movement);
-            transform.forward = movement;
-
-
-            // Clamp the position to stay within the defined boundaries
-            Vector3 clampedPosition = transform.position;
-            clampedPosition.x = Mathf.Clamp(clampedPosition.x, maxLeft, maxRight);
-            clampedPosition.z = Mathf.Clamp(clampedPosition.z, maxBack, maxFront);
-            transform.position = clampedPosition;
-            
-        }
-        else
-        {
-            animator.SetBool("IsMoving", false); // If there's no movement input, set isMoving to false
-        }
-        */
     }
 
-    /*
+    
     void Shoot()
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
@@ -169,6 +136,6 @@ public class Shooting : MonoBehaviour
             Debug.Log("All enemies destroyed. Stopping shooting.");
             // Optionally, perform any actions needed when all enemies are destroyed
         }
-    }*/
+    }
 }
 

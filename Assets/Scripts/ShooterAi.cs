@@ -11,14 +11,14 @@ public class ShooterAi : MonoBehaviour
     [SerializeField]
     private Transform attackPosition;
     [SerializeField]
-    private Transform bulletparent;
+    public Transform bulletparent;
     public Transform rayPosition;
     public LayerMask IgnoreMe;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField]
-    private Transform player;
-    [SerializeField] float helath, maxHealth = 100;
-    [SerializeField] EnemyHealthScript healthbar;
+    public Transform player;
+    //[SerializeField] float helath, maxHealth = 100;
+    //[SerializeField] EnemyHealthScript healthbar;
     public Animator animator;
     private float timeShot;
     //private Transform closestEnemy
@@ -27,16 +27,16 @@ public class ShooterAi : MonoBehaviour
 
     private void Awake()
     {
-        healthbar = GetComponentInChildren<EnemyHealthScript>();
+        //healthbar = GetComponentInChildren<EnemyHealthScript>();
         animator = GetComponent<Animator>();
     }
-    private void OnTriggerEnter(Collider other)
+    /*private void OnTriggerEnter(Collider other)
     {
         if ((other.CompareTag("AllyBullet")))
         {
             PlayerTakeDmg(20);
         }
-    }
+    }*/
     // Update is called once per frame
     void Update()
     {
@@ -80,9 +80,10 @@ public class ShooterAi : MonoBehaviour
             bulletController.hit = false;
         }
     }
-    private void PlayerTakeDmg(float dmg)
+    /*private void PlayerTakeDmg(float dmg)
     {
         helath -= dmg;
         healthbar.UpdateHealthBar(helath, maxHealth);
-    }
+    }*/
 }
+
