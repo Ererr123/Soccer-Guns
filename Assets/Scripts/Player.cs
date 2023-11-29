@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -105,6 +106,12 @@ public class Player : MonoBehaviour
     {
         myScore++;
         UpdateScore();
+
+        // win condition
+        if(myScore > 1)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 
     public void IncreaseOtherScore()
@@ -118,6 +125,7 @@ public class Player : MonoBehaviour
         soundCheer.Play();
         textScore.text = "Earth   " + myScore.ToString() + "|  Mars  " + otherScore.ToString();
         goalTextColorAlpha = 1f;
+
     }
 
 }
