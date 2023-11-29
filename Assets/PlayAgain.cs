@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class PlayAgain : MonoBehaviour
 {
-    public void PlayGame()
+    public void GoAgain()
     {
-        SceneManager.LoadSceneAsync("Cutscene1");
+        SceneManager.LoadSceneAsync("Playground");
     }
         
 }

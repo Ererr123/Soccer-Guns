@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class Quit : MonoBehaviour
 {
-    public void PlayGame()
+    public void QuitGame()
     {
-        SceneManager.LoadSceneAsync("Cutscene1");
+        SceneManager.LoadSceneAsync("MainMenu");
     }
         
 }
