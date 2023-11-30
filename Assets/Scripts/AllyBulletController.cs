@@ -33,6 +33,10 @@ public class AllyBulletController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+        if (hit && Vector3.Distance(transform.position, target) < .01f)
+        {
+            Destroy(this.gameObject);
+        }
 
 
     }

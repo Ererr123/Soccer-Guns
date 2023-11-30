@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1428819268469962481}
   - component: {fileID: 4995322060387466583}
   - component: {fileID: 2741496040820190993}
-  - component: {fileID: -4109346373539295524}
   - component: {fileID: 1459322935641265751}
+  - component: {fileID: 2937899155918945709}
   m_Layer: 0
   m_Name: AllyBullet
   m_TagString: AllyBullet
@@ -107,7 +107,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-4109346373539295524
+--- !u!114 &1459322935641265751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8168107586129397705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8edec4b6ca06c434b81a9be53a59b61b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &2937899155918945709
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,17 +144,5 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 1
---- !u!114 &1459322935641265751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8168107586129397705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8edec4b6ca06c434b81a9be53a59b61b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Constraints: 0
+  m_CollisionDetection: 0
