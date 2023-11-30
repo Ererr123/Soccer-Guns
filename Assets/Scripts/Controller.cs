@@ -123,7 +123,18 @@ public class Controller : MonoBehaviour
 
         if(scorer.helath <= 0)
         {
-            Scorer.SetActive(false);
+            if (scorer.ballAttachedToEnemy == true)
+            {
+                scorer.BallAttachedToEnemy.StickToPlayer = false;
+                scorer.ballAttachedToEnemy = null;
+                Scorer.SetActive(false);
+            }
+            else
+            {
+                Scorer.SetActive(false);
+            }
+           
+            
             scorer.helath = 100;
             StartCoroutine(Spawn(8));
         }

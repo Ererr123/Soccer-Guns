@@ -13,7 +13,7 @@ public class ScorerAI : MonoBehaviour
     [SerializeField] private Transform goal;
     [SerializeField] public float helath, maxHealth = 100;
     [SerializeField] EnemyHealthScript healthbar;
-    private Ball ballAttachedToEnemy;
+    public Ball ballAttachedToEnemy;
     public Animator animator;
     private Transform playerBallPosition;
     Vector3 previousLocation;
@@ -39,8 +39,8 @@ public class ScorerAI : MonoBehaviour
         }
         if(ball != null && ballAttachedToEnemy == true)
         {
-            Score();
             transform.LookAt(goal);
+            Score();
         }
         animator.SetLayerWeight(1, Mathf.Lerp(animator.GetLayerWeight(1), 0f, Time.deltaTime * 10f));
     }

@@ -7,7 +7,7 @@ public class Ball : MonoBehaviour
 {
     private bool stickToPlayer;
     [SerializeField] private Transform transformPlayer;
-    [SerializeField] private Transform transformEnemy;
+    [SerializeField] private GameObject transformEnemy;
     private Transform playerBallPosition;
     private Transform enemyBallPosition;
     float speed;
@@ -23,7 +23,7 @@ public class Ball : MonoBehaviour
         playerBallPosition = transformPlayer.Find("BallLocation");
         scriptPlayer = transformPlayer.GetComponent<Player>();
 
-        enemyBallPosition = transformEnemy.Find("BallLocation");
+        enemyBallPosition = transformEnemy.transform.Find("BallLocation");
         scriptScorer = transformEnemy.GetComponent<ScorerAI>();
     }
 
@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
             float distanceToEnemy = 0;
             speed = 0;
             distanceToPlayer = Mathf.Abs(Vector3.Distance(transformPlayer.position, transform.position));
-            distanceToEnemy = Mathf.Abs(Vector3.Distance(transformEnemy.position, transform.position));
+            distanceToEnemy = Mathf.Abs(Vector3.Distance(transformEnemy.transform.position, transform.position));
             if (distanceToPlayer < 1)
             {
                 rigidbody.velocity = Vector3.zero;
@@ -45,7 +45,7 @@ public class Ball : MonoBehaviour
                 stickToPlayer = true;
                 scriptPlayer.BallAttachedToPlayer = this;
             }
-            if (distanceToEnemy < 1)
+            if (transformEnemy.activeSelf && distanceToEnemy < 1)
             {
                 rigidbody.velocity = Vector3.zero;
                 rigidbody.angularVelocity = Vector3.zero;
@@ -63,12 +63,12 @@ public class Ball : MonoBehaviour
                 transform.Rotate(new Vector3(transformPlayer.right.x, 0, transformPlayer.right.z), speed, Space.World);
                 previousLocation = currentLocation;
             }
-            else if(scriptScorer.BallAttachedToEnemy == true)
+            else if(transformEnemy.activeSelf && scriptScorer.BallAttachedToEnemy == true)
             {
                 Vector2 currentLocation = new Vector2(transform.position.x, transform.position.z);
                 speed = Vector2.Distance(currentLocation, previousLocation) / Time.deltaTime;
                 transform.position = enemyBallPosition.position;
-                transform.Rotate(new Vector3(transformEnemy.right.x, 0, transformEnemy.right.z), speed, Space.World);
+                transform.Rotate(new Vector3(transformEnemy.transform.right.x, 0, transformEnemy.transform.right.z), speed, Space.World);
                 previousLocation = currentLocation;
             }
         }
