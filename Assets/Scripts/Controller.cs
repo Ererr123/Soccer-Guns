@@ -39,11 +39,11 @@ public class Controller : MonoBehaviour
     public GameObject Scorer;
     public Transform BulletParent;
     float time;
-    GameObject scorer;
     GameObject runner;
     GameObject shooter;
     GameObject goalie;
     GameObject defender;
+    ScorerAI scorer;
     [SerializeField]
     public Camera cam;
     public void Awake()
@@ -77,6 +77,7 @@ public class Controller : MonoBehaviour
         defend.ball = Ball;
         defender = Defender;
 
+        scorer = Scorer.GetComponent<ScorerAI>();
         /*EnemyHealthScript schealth = Scorer.transform.GetChild(2).GetChild(0).GetComponent<EnemyHealthScript>();
         schealth.cam = cam;
         ScorerAI score = Scorer.GetComponent<ScorerAI>();
@@ -98,10 +99,11 @@ public class Controller : MonoBehaviour
             powerBar.SetActive(false);
         }
 
-        EnemyList.Add(Instantiate(runner, new Vector3(0, -9.759598f, 22.27f), Quaternion.identity));
-        EnemyList.Add(Instantiate(shooter, new Vector3(3, -9.759598f, 22.27f), Quaternion.identity));
+        //EnemyList.Add(Instantiate(runner, new Vector3(0, -9.759598f, 22.27f), Quaternion.identity));
+        //EnemyList.Add(Instantiate(shooter, new Vector3(3, -9.759598f, 22.27f), Quaternion.identity));
         EnemyList.Add(Instantiate(goalie, new Vector3(0.919f, -9.7f, 25.17f), new Quaternion(0, -180, 0, 1)));
-        EnemyList.Add(Instantiate(defender, new Vector3(.41F, -9.7f, 22.409f), new Quaternion(0, -180, 0, 1)));
+        //EnemyList.Add(Instantiate(defender, new Vector3(.41F, -9.7f, 22.409f), new Quaternion(0, -180, 0, 1)));
+
 
 
     }
@@ -116,8 +118,14 @@ public class Controller : MonoBehaviour
                 Destroy(EnemyList[i]);
                 EnemyList.RemoveAt(i);
                 StartCoroutine(Spawn(health.type));
-
             }
+        }
+
+        if(scorer.helath <= 0)
+        {
+            Scorer.SetActive(false);
+            scorer.helath = 100;
+            StartCoroutine(Spawn(8));
         }
 
     }
@@ -151,6 +159,12 @@ public class Controller : MonoBehaviour
         else if (y == 3)
         {
             EnemyList.Add(Instantiate(defender, new Vector3(.41F, -9.7f, 22.409f), new Quaternion(0, -180, 0, 1)));
+        }
+        else
+        {
+            Scorer.SetActive(true);
+            EnemyHealthScript gh = Scorer.transform.GetChild(0).GetChild(0).GetComponent<EnemyHealthScript>();
+            gh.UpdateHealthBar(scorer.helath, scorer.maxHealth);
         }
     }
 

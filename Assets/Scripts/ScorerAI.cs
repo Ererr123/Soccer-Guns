@@ -11,7 +11,7 @@ public class ScorerAI : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Transform ball;
     [SerializeField] private Transform goal;
-    [SerializeField] float helath, maxHealth = 100;
+    [SerializeField] public float helath, maxHealth = 100;
     [SerializeField] EnemyHealthScript healthbar;
     private Ball ballAttachedToEnemy;
     public Animator animator;
