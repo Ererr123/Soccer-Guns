@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 119ec07f1c7ed204db46bd8465fd5a50, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 369b9ebe3a62b904dbc19bd332b44086, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1042,7 +1042,7 @@ MonoBehaviour:
   Player: {fileID: 1762682262}
   Ball: {fileID: 4935240605412640}
   Goal_: {fileID: 882271907}
-  Runner: {fileID: 7248911843317907685, guid: 5398ad8e9ff85b445986daf031f2bbc2, type: 3}
+  Runner: {fileID: 8653269816158823328, guid: d38bf3e1717c57642a2f4a1fa8e378e5, type: 3}
   Shooter: {fileID: 2373016479227253246, guid: 2ea445812d82e5a4d85928330749ee1c, type: 3}
   Goalie: {fileID: 8192149208795202766, guid: 2c9101b818c3fd94b83fc2fe7ac7b5eb, type: 3}
   Defender: {fileID: 5376825928004083315, guid: c3434b78872458549be6fcfe380b7b7a, type: 3}
