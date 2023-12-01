@@ -477,6 +477,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple_Defender
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2ed1fc2e10fbe9c41aa02123470185a4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1707957542689554991, guid: 2ed1fc2e10fbe9c41aa02123470185a4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -628,7 +632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalie: {fileID: 0}
   ball: {fileID: 0}
-  sideMovementSpeed: 3
+  sideMovementSpeed: 4
   maxDistanceFromGoal: 10
   animator: {fileID: 1672435018137771699}
 --- !u!114 &5313566030940731222
