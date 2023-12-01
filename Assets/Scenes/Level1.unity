@@ -1318,7 +1318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.56779355
+      value: 0.5413845
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2990,7 +2990,7 @@ GameObject:
   - component: {fileID: 1548464587}
   - component: {fileID: 1548464586}
   - component: {fileID: 1548464585}
-  - component: {fileID: 1548464584}
+  - component: {fileID: 1548464590}
   m_Layer: 0
   m_Name: Scorer
   m_TagString: Enemy
@@ -5467,7 +5467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.34941146
+      value: 0.33315977
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409503, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6238,7 +6238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.34941146
+      value: 0.33315977
       objectReference: {fileID: 0}
     - target: {fileID: 2070925441746177912, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6862,27 +6862,6 @@ Transform:
   - {fileID: 132221558}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!65 &1548464584
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3204643035843558604, guid: 069342a27e973fe4a93ff2a308c7e1b0, type: 3}
-  m_PrefabInstance: {fileID: 4667166397885331137}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 629026820}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &1548464585
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -6994,6 +6973,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &1548464590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629026820}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1552088019
 GameObject:
   m_ObjectHideFlags: 0
@@ -8665,9 +8665,9 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.7574712, y: 1.76716, z: 1}
   m_Center: {x: 0.005059183, y: 0.9079969, z: 0}
@@ -9648,7 +9648,7 @@ MonoBehaviour:
     m_InvertInput: 0
     m_MinValue: -70
     m_MaxValue: 70
-    m_Wrap: 0
+    m_Wrap: 1
     m_Recentering:
       m_enabled: 0
       m_WaitTime: 1
@@ -9672,7 +9672,7 @@ MonoBehaviour:
     m_InvertInput: 0
     m_MinValue: -180
     m_MaxValue: 180
-    m_Wrap: 0
+    m_Wrap: 1
     m_Recentering:
       m_enabled: 0
       m_WaitTime: 1
@@ -10243,7 +10243,8 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 418310894}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

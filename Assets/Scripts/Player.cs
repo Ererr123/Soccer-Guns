@@ -118,6 +118,10 @@ public class Player : MonoBehaviour
     {
         otherScore++;
         UpdateScore();
+        if(otherScore > 6)
+        {
+            SceneManager.LoadScene("LoseScreen");
+        }
     }
 
     private void UpdateScore()
