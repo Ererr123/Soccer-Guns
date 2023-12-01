@@ -31,7 +31,7 @@ public class Controller : MonoBehaviour
     int num;
     public Transform Player;
     public Transform Ball;
-    public Transform Goal_;
+    public GameObject Goal_;
     public GameObject Runner;
     public GameObject Shooter;
     public GameObject Goalie;
@@ -74,6 +74,7 @@ public class Controller : MonoBehaviour
         EnemyHealthScript dhealth = Defender.transform.GetChild(1).GetChild(0).GetComponent<EnemyHealthScript>();
         dhealth.cam = cam;
         DefenderAI defend = Defender.GetComponent<DefenderAI>();
+        defend.goalie = Goal_;
         defend.ball = Ball;
         defender = Defender;
 
@@ -99,10 +100,10 @@ public class Controller : MonoBehaviour
             powerBar.SetActive(false);
         }
 
-        //EnemyList.Add(Instantiate(runner, new Vector3(0, -9.759598f, 22.27f), Quaternion.identity));
-        //EnemyList.Add(Instantiate(shooter, new Vector3(3, -9.759598f, 22.27f), Quaternion.identity));
+        EnemyList.Add(Instantiate(runner, new Vector3(0, -9.759598f, 22.27f), Quaternion.identity));
+        EnemyList.Add(Instantiate(shooter, new Vector3(3, -9.759598f, 22.27f), Quaternion.identity));
         EnemyList.Add(Instantiate(goalie, new Vector3(0.919f, -9.7f, 25.17f), new Quaternion(0, -180, 0, 1)));
-        //EnemyList.Add(Instantiate(defender, new Vector3(.41F, -9.7f, 22.409f), new Quaternion(0, -180, 0, 1)));
+        EnemyList.Add(Instantiate(defender, new Vector3(.41F, -9.7f, 22.409f), new Quaternion(0, -180, 0, 1)));
 
 
 

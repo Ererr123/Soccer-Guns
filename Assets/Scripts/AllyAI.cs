@@ -44,7 +44,10 @@ public class AllyAI : MonoBehaviour
         {
             PlayerTakeDmg(20);
         }
-
+        if(helath <= 0)
+        {
+            UnityEngine.Object.Destroy(this.gameObject);
+        }
     }
     void Update()
     {

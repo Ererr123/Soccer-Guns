@@ -19,14 +19,6 @@ public class DefenderAI : MonoBehaviour
         startPosition = transform.position;
         animator = GetComponent<Animator>();
     }
-
-    /*private void OnTriggerEnter(Collider other)
-    {
-        if ((other.CompareTag("AllyBullet")))
-        {
-            PlayerTakeDmg(20);
-        }
-    }*/
     void Update()
     {
         // Stay in line with the ball but within limits
@@ -47,10 +39,4 @@ public class DefenderAI : MonoBehaviour
         }
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, sideMovementSpeed * Time.deltaTime);
     }
-
-    /*private void PlayerTakeDmg(float dmg)
-    {
-        helath -= dmg;
-        healthbar.UpdateHealthBar(helath, maxHealth);
-    }*/
 }

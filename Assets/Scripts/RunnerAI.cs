@@ -10,23 +10,12 @@ public class RunnerAI : MonoBehaviour
     public Transform Enemy;
     public Transform Player;
     private Transform ball;
-    //private Vector3 targetGoalPosition;
     [SerializeField] float MoveSpeed;
-    //[SerializeField] private float movementSpeed = 4.0f;
-    //[SerializeField] private float shootingPower = 0.7f;
-    //private Transform playerBallPosition;
     int MaxDist = 10;
     int MinDist = 3;
     bool controller;
     private float timeSlide;
     public Animator animator;
-    //[SerializeField] float helath, maxHealth = 100f;
-    //[SerializeField] EnemyHealthScript healthbar;
-
-    /*private void Awake()
-    {
-        healthbar = GetComponentInChildren<EnemyHealthScript>();
-    }*/
 
     void Start()
     {
@@ -59,13 +48,6 @@ public class RunnerAI : MonoBehaviour
             transform.rotation = targetRotation;
             transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 
-
-
-            if (Vector3.Distance(transform.position, Enemy.position) <= MaxDist)
-            {
-                //Here Call any function U want Like Shoot at here or something
-            }
-
         }
         if (Vector3.Distance(transform.position, Enemy.position) < MinDist && controller == false)
         {
@@ -76,9 +58,4 @@ public class RunnerAI : MonoBehaviour
         }
     }
 
-    /*private void PlayerTakeDmg(float dmg)
-    {
-        helath -= dmg;
-        healthbar.UpdateHealthBar(helath, maxHealth);
-    }*/
 }

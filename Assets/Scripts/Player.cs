@@ -15,8 +15,6 @@ public class Player : MonoBehaviour
     public Animator animator;
     private Ball ballAttachedToPlayer;
     private float timeShot;
-    [SerializeField]
-    public Camera cam;
     public const int LAYER_SHOOT = 1;
     public int myScore,otherScore;
     private float goalTextColorAlpha;

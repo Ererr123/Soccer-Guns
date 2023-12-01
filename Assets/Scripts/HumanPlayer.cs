@@ -19,11 +19,16 @@ public class HumanPlayer : MonoBehaviour
 
     [SerializeField]
     private Transform bulletparent;
+
+    [SerializeField]
+    public int damage;
+
     [SerializeField] private float rotationSpeed = 5f;
     private InputAction gunAction;
     private PlayerInput playerInput;
     private Transform CameraTransform;
     private StarterAssetsInputs starterAssetsInputs;
+    private bool hit = false;
     private CharacterController controller;
     public Animator animator;
     public bool movement = true;
@@ -60,30 +65,31 @@ public class HumanPlayer : MonoBehaviour
         RaycastHit hit;
         GameObject bullet = GameObject.Instantiate(bulletPrefab, attackPosition.position, Quaternion.identity, bulletparent);
         AllyBulletController bulletController = bullet.GetComponent<AllyBulletController>();
-        if (Physics.Raycast(CameraTransform.position,CameraTransform.forward, out hit, 300f, ~IgnoreMe))
+        if (Physics.Raycast(CameraTransform.position, CameraTransform.forward, out hit, 300f, ~IgnoreMe))
         {
             bulletController.target = hit.point;
             bulletController.hit = true;
         }
         else
         {
-            bulletController.target = CameraTransform.position+CameraTransform.forward *25f;
+            bulletController.target = CameraTransform.position + CameraTransform.forward * 25f;
             bulletController.hit = false;
         }
     }
 
     void Update()
-    {   
-        if(Time.time - timeShot > .75)
+    {
+        if (Time.time - timeShot > .75)
         {
             timeShot = 0;
             animator.SetLayerWeight(3, 0);
         }
-        if (Time.time - timeTackle >2.2)
+        if (Time.time - timeTackle > 2.2)
         {
             animator.SetLayerWeight(2, Mathf.Lerp(animator.GetLayerWeight(2), 0f, Time.deltaTime * 10f));
         }
-        if (starterAssetsInputs.shoot){
+        if (starterAssetsInputs.shoot)
+        {
             if (scriptPlayer.BallAttachedToPlayer)
             {
                 scriptPlayer.ShootingPower += 1.5f * Time.deltaTime;
@@ -94,7 +100,7 @@ public class HumanPlayer : MonoBehaviour
                 }
             }
         }
-        else if (scriptPlayer.ShootingPower>0)
+        else if (scriptPlayer.ShootingPower > 0)
         {
             scriptPlayer.Shoot();
         }
@@ -111,19 +117,22 @@ public class HumanPlayer : MonoBehaviour
         }
     }*/
 
-private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag.Equals("Runner"))
+        if (other.gameObject.tag.Equals("Runner") && hit == false)
         {
+            hit = true;
             timeTackle = Time.time;
             animator.Play("Tackled", 2, 0f);
             animator.SetLayerWeight(2, 2f);
-            PlayerTakeDmg(10);
+            PlayerTakeDmg(damage);
+            StartCoroutine(Wait());
+                
         }
 
         if (other.CompareTag("EnemyBullet"))
         {
-            PlayerTakeDmg(20);
+            PlayerTakeDmg(10);
         }
     }
 
@@ -140,5 +149,10 @@ private void OnTriggerEnter(Collider other)
     {
         // Load the intro screen scene
         SceneManager.LoadScene("LoseScreen");
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(3);
+        hit = false;
     }
 }

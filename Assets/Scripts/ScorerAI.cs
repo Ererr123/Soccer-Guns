@@ -64,9 +64,9 @@ public class ScorerAI : MonoBehaviour
         float distanceToGoal = 0;
         distanceToGoal = Vector3.Distance(goal.position, transform.position);
         if(distanceToGoal < 10)
-        {
-            animator.Play("Shoot", 1, 0f);
-            animator.SetLayerWeight(1, 1f);
+        {   
+             animator.Play("Shoot", 1, 0f);
+             animator.SetLayerWeight(1, 1f);
 
             BallAttachedToEnemy.StickToPlayer = false;
             Rigidbody rigidbody = ballAttachedToEnemy.gameObject.GetComponent<Rigidbody>();
