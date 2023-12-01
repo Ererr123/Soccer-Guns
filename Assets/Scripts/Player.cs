@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     public Animator animator;
     private Ball ballAttachedToPlayer;
     private float timeShot;
+    [SerializeField]
+    public Camera cam;
     public const int LAYER_SHOOT = 1;
     public int myScore,otherScore;
     private float goalTextColorAlpha;
@@ -42,7 +44,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         float speed = new Vector3(controller.velocity.x, 0, controller.velocity.z).magnitude;
 
         if (timeShot > 0)

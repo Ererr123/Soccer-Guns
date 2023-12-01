@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class AimCameraRotate : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] private Transform cam;
-    [SerializeField] private Transform player;
+    [SerializeField]
+    private Transform target;
 
     private void Update()
     {
-       cam.forward = player.forward;
+        Refresh();
+    }
+
+    public void Refresh()
+    {
+       transform.LookAt(target.position);
+
+        
     }
 }
