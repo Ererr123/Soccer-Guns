@@ -102,6 +102,7 @@ public class Controller : MonoBehaviour
 
         EnemyList.Add(Instantiate(runner, new Vector3(0, -9.759598f, 22.27f), Quaternion.identity));
         EnemyList.Add(Instantiate(shooter, new Vector3(3, -9.759598f, 22.27f), Quaternion.identity));
+        EnemyList.Add(Instantiate(shooter, new Vector3(6, -9.759598f, 22.27f), Quaternion.identity));
         EnemyList.Add(Instantiate(goalie, new Vector3(0.919f, -9.7f, 25.17f), new Quaternion(0, -180, 0, 1)));
         EnemyList.Add(Instantiate(defender, new Vector3(.41F, -9.7f, 23.409f), new Quaternion(0, -180, 0, 1)));
 
