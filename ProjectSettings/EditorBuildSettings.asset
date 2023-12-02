@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/LevelsMenu.unity
+    guid: 066179336c715de48a518c3d1a735b05
+  - enabled: 1
     path: Assets/Scenes/Cutscene1.unity
     guid: f9f826bd33116bd4e9e14511555ed7c9
   - enabled: 1
@@ -21,27 +24,30 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: e9017d5f96b9f09489b4b37e1d6eb914
   - enabled: 1
-    path: Assets/Scenes/LoseScreen.unity
-    guid: 3123354eacee76c48adfe75324018297
-  - enabled: 1
-    path: Assets/Scenes/WinScreen.unity
-    guid: c1a1bb5c11a44dc4f9522c5ea356ee0d
-  - enabled: 1
     path: Assets/Scenes/Level2.unity
     guid: 6e83b65f2b4bf094b9602499c5de1e9a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WinScreen2.unity
     guid: fa5311de90a18cd43803f350eae14bf7
   - enabled: 1
     path: Assets/Scenes/Level3.unity
     guid: e98b50269abf6d143b45d0675e8abb3a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WinScreen3.unity
     guid: ca1925cd92f82174fbc23a9c73cc29c7
   - enabled: 1
     path: Assets/Scenes/Level4.unity
     guid: beb39051572d7cb448e2dac225a4f0d9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WinScreen4.unity
     guid: f2bb36609d7b84c439ff4f83ba47a01d
+  - enabled: 1
+    path: Assets/Scenes/Level5.unity
+    guid: ef14552a94af5954e863f2be11f5956c
+  - enabled: 0
+    path: Assets/Scenes/WinScreen.unity
+    guid: c1a1bb5c11a44dc4f9522c5ea356ee0d
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: 3123354eacee76c48adfe75324018297
   m_configObjects: {}

@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
     
     public void LoadWinScreen()
     {
-        SceneManager.LoadScene("WinScreen");
+        SceneManager.LoadScene("LevelsScreen");
     }
 
 
