@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     private float shootingPower;
     private float updateTime;
 
+    private int currentLevel = 1;
+
     public Ball BallAttachedToPlayer { get => ballAttachedToPlayer; set => ballAttachedToPlayer = value; }
     public float ShootingPower { get => shootingPower; set => shootingPower = value; }
     // Start is called before the first frame update
@@ -107,11 +109,28 @@ public class Player : MonoBehaviour
         UpdateScore();
 
         // win condition
-        if(myScore > 6)
+        if (myScore > 6)
+        {
+            currentLevel++;
+            string nextScene = "Level" + currentLevel;
+
+        // Check if the next level scene exists, otherwise, load a win screen
+        if (SceneExists(nextScene))
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+        else
         {
             LoadWinScreen();
         }
+        }
     }
+
+   private bool SceneExists(string sceneName)
+   {
+    int sceneIndex = SceneManager.GetSceneByName(sceneName).buildIndex;
+    return sceneIndex != -1 && sceneIndex < SceneManager.sceneCountInBuildSettings;
+   }   
 
     
     public void LoadWinScreen()
