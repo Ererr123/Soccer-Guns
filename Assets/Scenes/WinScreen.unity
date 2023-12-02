@@ -206,8 +206,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Cutscene1_next, Assembly-CSharp
+      - m_Target: {fileID: 1580844502}
+        m_TargetAssemblyTypeName: NextLevel, Assembly-CSharp
         m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
@@ -736,9 +736,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Cutscene1_next, Assembly-CSharp
-        m_MethodName: NextScene
+      - m_Target: {fileID: 1580844500}
+        m_TargetAssemblyTypeName: Quit, Assembly-CSharp
+        m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1580844496}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b5d2cbdd25d124488092b22f24e61f, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f353980e0ca7eb478848d28b2a11713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1612589953

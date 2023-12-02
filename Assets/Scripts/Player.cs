@@ -109,9 +109,16 @@ public class Player : MonoBehaviour
         // win condition
         if(myScore > 6)
         {
-            SceneManager.LoadScene("MainMenu");
+            LoadWinScreen();
         }
     }
+
+    
+    public void LoadWinScreen()
+    {
+        SceneManager.LoadScene("WinScreen");
+    }
+
 
     public void IncreaseOtherScore()
     {
@@ -130,5 +137,4 @@ public class Player : MonoBehaviour
         goalTextColorAlpha = 1f;
 
     }
-
 }
