@@ -72,7 +72,7 @@ public class ScorerAI : MonoBehaviour
             Rigidbody rigidbody = ballAttachedToEnemy.gameObject.GetComponent<Rigidbody>();
             Vector3 shootDirection = transform.forward;
             shootDirection.y += 0.2f;
-            rigidbody.AddForce(shootDirection * (4f), ForceMode.Impulse);
+            rigidbody.AddForce(shootDirection * (9f), ForceMode.Impulse);
             ballAttachedToEnemy = null;
         }
     }
